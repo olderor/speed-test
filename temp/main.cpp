@@ -25,6 +25,17 @@ int foo_address_int(ull &v) {
     return 0;
 }
 
+int foo_const_int(const ull v) {
+    return 0;
+}
+
+int foo_const_address_int(const ull &v) {
+    return 0;
+}
+
+
+
+
 
 int get_time_of_func(void(*f)(ull), ull parameter) {
 
@@ -36,6 +47,10 @@ int get_time_of_func(void(*f)(ull), ull parameter) {
 
     return end - begin;
 }
+
+
+
+
 
 
 void test_vector(ull test_size) {
@@ -74,6 +89,20 @@ void test_address_int(ull test_size) {
     }
 }
 
+void test_const_int(ull test_size) {
+
+    for (ull i = 0; i < test_size; ++i) {
+        foo_const_int(i);
+    }
+}
+
+void test_const_address_int(ull test_size) {
+
+    for (ull i = 0; i < test_size; ++i) {
+        foo_const_address_int(i);
+    }
+}
+
 void make_test1(std::ostream &_Istr, ull size, int test_index) {
 
     double vector_time = get_time_of_func(test_vector, size);
@@ -98,11 +127,18 @@ void make_test2(std::ostream &_Istr, ull size, int test_index) {
 
     double int_time = get_time_of_func(test_int, size);
     double int_address_time = get_time_of_func(test_address_int, size);
+    double int_const_time = get_time_of_func(test_const_int, size);
+    double int_const_address_time = get_time_of_func(test_const_address_int, size);
 
     _Istr << "test #" << test_index << "  with size " << size << ":" << endl;
     _Istr << "int test was elapsed within " << (int)int_time << " milliseconds." << endl;
     _Istr << "int address test was elapsed within " << (int)int_address_time << " milliseconds." << endl;
+    _Istr << "int const test was elapsed within " << (int)int_const_time << " milliseconds." << endl;
+    _Istr << "int const address test was elapsed within " << (int)int_const_address_time << " milliseconds." << endl;
     _Istr << "int address " << 100 - (int)(int_address_time / int_time * 100.0) << "% faster than int" << endl;
+    _Istr << "int const address " << 100 - (int)(int_const_address_time / int_const_time * 100.0) << "% faster than const int" << endl;
+    _Istr << "int const " << 100 - (int)(int_const_time / int_time * 100.0) << "% faster than int" << endl;
+    _Istr << "int const address " << 100 - (int)(int_const_address_time / int_address_time * 100.0) << "% faster than int address" << endl;
     _Istr << endl;
 
 }
@@ -135,7 +171,7 @@ int main() {
 
     int test = 8;
     ull size = 100000000;
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
 
         cout << "Test #" << i << " for size " << size << " (test " << test << ")..." << endl;
         make_test2(fout, size, test);
