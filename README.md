@@ -1,5 +1,5 @@
 # speed-test
-test results: https://github.com/olderor/speed-test/blob/master/temp/log.txt
+test results: https://github.com/olderor/speed-test/blob/master/temp/log.txt </br></br>
 conclusion:
 - use addressing when you need to pass a vector as a parameter
 - use addresing when you need to pass an int as a parameter. it gives you a slight advantage in time efficiency when you have a lot of function calls. (also should work for all other types of a parameter)
