@@ -33,7 +33,13 @@ int foo_const_address_int(const ull &v) {
     return 0;
 }
 
+int foo_const_vector(const vector<int> v) {
+    return 0;
+}
 
+int foo_const_address_vector(const vector<int> &v) {
+    return 0;
+}
 
 
 
@@ -103,6 +109,27 @@ void test_const_address_int(ull test_size) {
     }
 }
 
+void test_const_vector(ull test_size) {
+    vector<int> v(test_size);
+
+    for (int i = 0; i < test_size; ++i) {
+        v[i] = i;
+    }
+
+    foo_const_vector(v);
+}
+
+void test_const_address_vector(ull test_size) {
+
+    vector<int> v(test_size);
+
+    for (int i = 0; i < test_size; ++i) {
+        v[i] = i;
+    }
+
+    foo_const_address_vector(v);
+}
+
 void make_test1(std::ostream &_Istr, ull size, int test_index) {
 
     double vector_time = get_time_of_func(test_vector, size);
@@ -143,6 +170,27 @@ void make_test2(std::ostream &_Istr, ull size, int test_index) {
 
 }
 
+void make_test3(std::ostream &_Istr, ull size, int test_index) {
+
+    double vector_time = get_time_of_func(test_vector, size);
+    double vector_const_time = get_time_of_func(test_const_vector, size);
+
+    double vector_address_time = get_time_of_func(test_address_vector, size);
+    double vector_const_address_time = get_time_of_func(test_const_address_vector, size);
+
+    _Istr << "test #" << test_index << " with size " << size << ":" << endl;
+    _Istr << "vector test was elapsed within " << (int)vector_time << " milliseconds." << endl;
+    _Istr << "vector address test was elapsed within " << (int)vector_address_time << " milliseconds." << endl;
+    _Istr << "vector const test was elapsed within " << (int)vector_const_time << " milliseconds." << endl;
+    _Istr << "vector const address test was elapsed within " << (int)vector_const_address_time << " milliseconds." << endl;
+    _Istr << "vector address " << 100 - (int)(vector_address_time / vector_time * 100.0) << "% faster than vector" << endl;
+    _Istr << "vector const " << 100 - (int)(vector_const_time / vector_time * 100.0) << "% faster than vector" << endl;
+    _Istr << "vector const address " << 100 - (int)(vector_const_address_time / vector_address_time * 100.0) << "% faster than vector address" << endl;
+    _Istr << "vector const address " << 100 - (int)(vector_const_address_time / vector_const_time * 100.0) << "% faster than vector const" << endl;
+    _Istr << endl;
+
+}
+
 int main() {
 
     ofstream fout("log.txt", ios::app);
@@ -169,12 +217,12 @@ int main() {
         size *= 10;
     }*/
 
-    int test = 8;
-    ull size = 100000000;
+    int test = 6;
+    ull size = 1000000;
     for (int i = 0; i < 100; ++i) {
 
         cout << "Test #" << i << " for size " << size << " (test " << test << ")..." << endl;
-        make_test2(fout, size, test);
+        make_test3(fout, size, test);
     }
 
     ++test;
@@ -183,7 +231,7 @@ int main() {
 
     for (int i = 0; i < 10; ++i) {
         cout << "Test #" << i << " for size " << size << " (test " << test << ")..." << endl;
-        make_test2(fout, size, test);
+        make_test3(fout, size, test);
     }
 
     fout.close();
