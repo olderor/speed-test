@@ -3,52 +3,79 @@ vector test was elapsed within 0 milliseconds.
 int test was elapsed within 0 milliseconds.
 vector address test was elapsed within 0 milliseconds.
 int address test was elapsed within 0 milliseconds.
+int -2147483548% faster than vector
+vector address -2147483548% faster than vector
+int address -2147483548% faster than int
 
 testing with size 10:
 vector test was elapsed within 0 milliseconds.
 int test was elapsed within 0 milliseconds.
 vector address test was elapsed within 0 milliseconds.
 int address test was elapsed within 0 milliseconds.
+int -2147483548% faster than vector
+vector address -2147483548% faster than vector
+int address -2147483548% faster than int
 
 testing with size 100:
 vector test was elapsed within 0 milliseconds.
 int test was elapsed within 0 milliseconds.
 vector address test was elapsed within 0 milliseconds.
 int address test was elapsed within 0 milliseconds.
+int -2147483548% faster than vector
+vector address -2147483548% faster than vector
+int address -2147483548% faster than int
 
 testing with size 1000:
 vector test was elapsed within 0 milliseconds.
 int test was elapsed within 0 milliseconds.
 vector address test was elapsed within 0 milliseconds.
 int address test was elapsed within 0 milliseconds.
+int -2147483548% faster than vector
+vector address -2147483548% faster than vector
+int address -2147483548% faster than int
 
 testing with size 10000:
-vector test was elapsed within 4 milliseconds.
-int test was elapsed within 1 milliseconds.
+vector test was elapsed within 3 milliseconds.
+int test was elapsed within 0 milliseconds.
 vector address test was elapsed within 3 milliseconds.
 int address test was elapsed within 0 milliseconds.
+int 100% faster than vector
+vector address 0% faster than vector
+int address -2147483548% faster than int
 
 testing with size 100000:
-vector test was elapsed within 29 milliseconds.
-int test was elapsed within 3 milliseconds.
-vector address test was elapsed within 35 milliseconds.
-int address test was elapsed within 2 milliseconds.
+vector test was elapsed within 30 milliseconds.
+int test was elapsed within 2 milliseconds.
+vector address test was elapsed within 29 milliseconds.
+int address test was elapsed within 3 milliseconds.
+int 94% faster than vector
+vector address 4% faster than vector
+int address -50% faster than int
 
 testing with size 1000000:
-vector test was elapsed within 302 milliseconds.
-int test was elapsed within 27 milliseconds.
-vector address test was elapsed within 315 milliseconds.
-int address test was elapsed within 26 milliseconds.
+vector test was elapsed within 306 milliseconds.
+int test was elapsed within 24 milliseconds.
+vector address test was elapsed within 302 milliseconds.
+int address test was elapsed within 24 milliseconds.
+int 93% faster than vector
+vector address 2% faster than vector
+int address 0% faster than int
 
 testing with size 10000000:
-vector test was elapsed within 2845 milliseconds.
-int test was elapsed within 232 milliseconds.
-vector address test was elapsed within 2809 milliseconds.
-int address test was elapsed within 245 milliseconds.
+vector test was elapsed within 2859 milliseconds.
+int test was elapsed within 238 milliseconds.
+vector address test was elapsed within 2827 milliseconds.
+int address test was elapsed within 237 milliseconds.
+int 92% faster than vector
+vector address 2% faster than vector
+int address 1% faster than int
 
 testing with size 100000000:
-vector test was elapsed within 28454 milliseconds.
-int test was elapsed within 2427 milliseconds.
-vector address test was elapsed within 28576 milliseconds.
-int address test was elapsed within 2425 milliseconds.
+vector test was elapsed within 28507 milliseconds.
+int test was elapsed within 2372 milliseconds.
+vector address test was elapsed within 28229 milliseconds.
+int address test was elapsed within 2424 milliseconds.
+int 92% faster than vector
+vector address 1% faster than vector
+int address -2% faster than int
 

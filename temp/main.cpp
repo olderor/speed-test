@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <iomanip>
+
 
 using namespace std;
 
@@ -73,17 +75,20 @@ void test_address_int(int test_size) {
 
 void make_test(std::ostream &_Istr, int size) {
 
-    int vector_time = get_time_of_func(test_vector, size);
-    int int_time = get_time_of_func(test_int, size);
+    double vector_time = get_time_of_func(test_vector, size);
+    double int_time = get_time_of_func(test_int, size);
 
-    int vector_address_time = get_time_of_func(test_address_vector, size);
-    int int_address_time = get_time_of_func(test_address_int, size);
+    double vector_address_time = get_time_of_func(test_address_vector, size);
+    double int_address_time = get_time_of_func(test_address_int, size);
 
     _Istr << "testing with size " << size << ":" << endl;
-    _Istr << "vector test was elapsed within " << vector_time << " milliseconds." << endl;
-    _Istr << "int test was elapsed within " << int_time << " milliseconds." << endl;
-    _Istr << "vector address test was elapsed within " << vector_address_time << " milliseconds." << endl;
-    _Istr << "int address test was elapsed within " << int_address_time << " milliseconds." << endl;
+    _Istr << "vector test was elapsed within " << (int)vector_time << " milliseconds." << endl;
+    _Istr << "int test was elapsed within " << (int)int_time << " milliseconds." << endl;
+    _Istr << "vector address test was elapsed within " << (int)vector_address_time << " milliseconds." << endl;
+    _Istr << "int address test was elapsed within " << (int)int_address_time << " milliseconds." << endl;
+    _Istr << "int " << 100 - (int)(int_time / vector_time * 100.0) << "% faster than vector" << endl;
+    _Istr << "vector address " << 100 - (int)(vector_address_time / vector_time * 100.0) << "% faster than vector" << endl;
+    _Istr << "int address " << 100 - (int)(int_address_time / int_time * 100.0) << "% faster than int" << endl;
     _Istr << endl;
 
 }
