@@ -1,0 +1,54 @@
+testing with size 1:
+vector test was elapsed within 0 milliseconds.
+int test was elapsed within 0 milliseconds.
+vector address test was elapsed within 0 milliseconds.
+int address test was elapsed within 0 milliseconds.
+
+testing with size 10:
+vector test was elapsed within 0 milliseconds.
+int test was elapsed within 0 milliseconds.
+vector address test was elapsed within 0 milliseconds.
+int address test was elapsed within 0 milliseconds.
+
+testing with size 100:
+vector test was elapsed within 0 milliseconds.
+int test was elapsed within 0 milliseconds.
+vector address test was elapsed within 0 milliseconds.
+int address test was elapsed within 0 milliseconds.
+
+testing with size 1000:
+vector test was elapsed within 0 milliseconds.
+int test was elapsed within 0 milliseconds.
+vector address test was elapsed within 0 milliseconds.
+int address test was elapsed within 0 milliseconds.
+
+testing with size 10000:
+vector test was elapsed within 4 milliseconds.
+int test was elapsed within 1 milliseconds.
+vector address test was elapsed within 3 milliseconds.
+int address test was elapsed within 0 milliseconds.
+
+testing with size 100000:
+vector test was elapsed within 29 milliseconds.
+int test was elapsed within 3 milliseconds.
+vector address test was elapsed within 35 milliseconds.
+int address test was elapsed within 2 milliseconds.
+
+testing with size 1000000:
+vector test was elapsed within 302 milliseconds.
+int test was elapsed within 27 milliseconds.
+vector address test was elapsed within 315 milliseconds.
+int address test was elapsed within 26 milliseconds.
+
+testing with size 10000000:
+vector test was elapsed within 2845 milliseconds.
+int test was elapsed within 232 milliseconds.
+vector address test was elapsed within 2809 milliseconds.
+int address test was elapsed within 245 milliseconds.
+
+testing with size 100000000:
+vector test was elapsed within 28454 milliseconds.
+int test was elapsed within 2427 milliseconds.
+vector address test was elapsed within 28576 milliseconds.
+int address test was elapsed within 2425 milliseconds.
+

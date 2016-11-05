@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -70,9 +71,7 @@ void test_address_int(int test_size) {
     }
 }
 
-int main() {
-
-    int size = 1000000;
+void make_test(std::ostream &_Istr, int size) {
 
     int vector_time = get_time_of_func(test_vector, size);
     int int_time = get_time_of_func(test_int, size);
@@ -80,13 +79,37 @@ int main() {
     int vector_address_time = get_time_of_func(test_address_vector, size);
     int int_address_time = get_time_of_func(test_address_int, size);
 
-    cout << "vector test was elapsed within " << vector_time << " milliseconds." << endl;
-    cout << "int test was elapsed within " << int_time << " milliseconds." << endl;
-    cout << endl;
-    cout << "vector address test was elapsed within " << vector_address_time << " milliseconds." << endl;
-    cout << "int address test was elapsed within " << int_address_time << " milliseconds." << endl;
+    _Istr << "testing with size " << size << ":" << endl;
+    _Istr << "vector test was elapsed within " << vector_time << " milliseconds." << endl;
+    _Istr << "int test was elapsed within " << int_time << " milliseconds." << endl;
+    _Istr << "vector address test was elapsed within " << vector_address_time << " milliseconds." << endl;
+    _Istr << "int address test was elapsed within " << int_address_time << " milliseconds." << endl;
+    _Istr << endl;
 
-    cin >> size;
+}
+
+int main() {
+
+    ofstream fout("log.txt");
+
+    cout << "Starting testing 10^8 tests..." << endl;
+
+    int size = 1;
+
+    for (int test = 0; test <= 8; ++test) {
+
+        cout << "Testing for size " << size << " (test " << test << ")..." << endl;
+        make_test(fout, size);
+        cout << "Complete." << endl;
+
+        size *= 10;
+    }
+
+    fout.close();
+
+    cout << "Done." << endl;
+
+    cin.get();
 
     return 0;
 }
